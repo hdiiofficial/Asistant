@@ -53,21 +53,22 @@ function _0x2159(_0x1eb108,_0x18741d){const _0x488306=_0x4883();return _0x2159=f
       
     switch (command.toLowerCase()) {
       case "menu": {
-      	status('composing')
-          reply("nothing")
+        status('composing')
+        reply("nothing")
       }
       break
       case "ai": {
       	const anu  = msgText.trim().split(/ +/).slice(1)
       	const url = `https://api-yanamiku.vercel.app/api/ai/hercai?message=` + anu
-          const response = await fetch(url);
-          const json = await response.json();
-          reply(json.reply)
+        const response = fetch(url);
+        const json = response.json();
+        reply(json.reply)
       }
+      break
       case "pc": {
       	const target = msgText.trim().split(/ +/).slice(1)
-          const text = msgText.trim().split(/ +/).slice(2)
-          pece(target + "@s.whatsapp.net", text)
+        const text = msgText.trim().split(/ +/).slice(2)
+        pece(target + "@s.whatsapp.net", text)
       }
       break
     }
